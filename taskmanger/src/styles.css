@@ -1,0 +1,21 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+.dotted {
+border: 2px dotted #ff0000; 
+border-style: none none dotted; 
+color: #fff; 
+background-color: #fff;
+}
+
+.rowBg {
+background: #D3D3D3;
+padding: 0px; /* added this */
+    }
+

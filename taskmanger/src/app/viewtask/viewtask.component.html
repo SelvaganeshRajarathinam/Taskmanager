@@ -1,0 +1,81 @@
+<section class="panel panel-primary">
+	<header class="panel-heading">
+		<h3 align="center">View Task</h3>
+	</header>
+
+	<div class="row shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="col-md-12" >
+	<form class="form-horizontal">
+		<div class="row mt-12">
+
+			<label class="control-label col-md-1 text-right" >Task: </label>
+			<div class="col-md-5">
+				<input class="form-control" type="text" name="taskName" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-1 text-right" >Parent Task: </label>
+			<div class="col-md-5">
+				<input class="form-control" type="text" name="parentTaskName" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-12"></label>
+			<label class="control-label col-md-12"></label>
+			<label class="control-label col-md-12"></label>
+
+			<label class="control-label col-md-1 text-right" >Priority From: </label>
+			<div class="col-md-2">
+				<input class="form-control" type="text" name="priorityFrom" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-1 text-right" >Priority To: </label>
+			<div class="col-md-2">
+				<input class="form-control" type="text" name="priorityTo" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-1 text-right" >Start Date: </label>
+			<div class="col-md-2">
+				<input class="form-control" type="text" name="sDate" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-1 text-right" >End Date: </label>
+			<div class="col-md-2">
+				<input class="form-control" type="text" name="eDate" [(ngModel)]="searchText">
+			</div>
+
+			<label class="control-label col-md-12"></label><label class="control-label col-md-12"></label>
+
+			<div class="col-md-12" align="center">
+				<button type="button" class="btn btn-secondary" (click)="search()">Search</button>
+			</div>
+    	</div>
+
+		<hr class="dotted">
+
+		<div class="row mt-3 ">
+			<label class="control-label col-md-1 text-right">Task Id</label>
+			<label class="control-label col-md-2 text-right">Task</label>
+			<label class="control-label col-md-2 text-right">Parent</label>
+			<label class="control-label col-md-1 text-right">Priority</label>
+			<label class="control-label col-md-2 text-right">Start</label>
+			<label class="control-label col-md-2 text-right">End</label>
+    </div>
+
+    <div class="row mt-3" *ngFor="let d of task | orderBy: key : reverse">
+					<label class="control-label col-md-1 text-right">{{d.taskId}}</label>
+    			<label class="control-label col-md-2 text-right">{{d.taskName}}</label>
+    			<label class="control-label col-md-2 text-right">{{d.parentTaskName}}</label>
+    			<label class="control-label col-md-1 text-right">{{d.priority}}</label>
+    			<label class="control-label col-md-2 text-right">{{d.startDate| date:'dd-MMM-yyyy'}}</label>
+    			<label class="control-label col-md-2 text-right">{{d.endDate| date:'dd-MMM-yyyy'}}</label>
+    			<button class="btn btn-secondary" [routerLink]="['/updateTask', d.taskId]">Edit</button>
+					&nbsp;&nbsp;
+				  <button class="btn btn-secondary" (click)="endTask(d.taskId)">End Task</button>
+    </div>
+
+   </form>
+  </div>
+ </div>
+ <div class="alert alert-warning alert-dismissible fade show">
+		{{message}}
+ </div>
+</section>

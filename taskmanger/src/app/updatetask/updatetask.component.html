@@ -1,0 +1,66 @@
+<section class="panel panel-primary">
+	<header class="panel-heading">
+		<h3 align="center">Update Task</h3>
+	</header>
+	<div class="alert alert-warning alert-dismissible fade show">
+    	{{ errMessage }}
+	</div>
+	<div class="row shadow-lg p-3 mb-5 bg-white rounded">
+	<div class="col-md-12" >
+	<form class="form-horizontal container">
+    <!--<div class="form-row">
+            <label class="control-label col-md-4">Project</label>
+            <div class="col-md-4">
+             <input class="form-control" type="text" name="parenttask" [(ngModel)]="task.parenttask">
+             <select name="subjectProject"[(ngModel)]="task.projectId">
+                <option *ngFor = "let prj of prjList" [ngValue] = "prj.projectId" >
+                  {{prj.projectName}}
+                </option>
+            </select>
+            <label>{{task.projectName}}</label>
+           <input class="form-control" type="text" name="projectName" [(ngModel)]="task.projectName">
+            </div>
+    </div>-->
+		<div class="form-row ">
+			<label class="control-label col-md-4" >Task: </label>
+			<div class="col-md-4">
+			<input class="form-control" type="text" name="taskName" [(ngModel)]="task.taskName">
+			</div>
+		</div>
+
+		<div class="form-row">
+			<label class="control-label col-md-4">Priority</label>
+			<div class="col-md-4">
+			<input class="form-control" type="text" name="priority" [(ngModel)]="task.priority">
+			</div>
+    </div>
+    <div class="form-row">
+            <label class="control-label col-md-4">Parent Task</label>
+            <div class="col-md-4">
+            		<input class="form-control" type="text" name="parentTaskName" [(ngModel)]="task.parentTaskName">
+            </div>
+    </div>
+
+		<div class="form-row">
+			<label class="control-label col-md-4">Start Date</label>
+			<div class="col-md-4">
+			<input class="form-control" type="date" name="startdate" [(ngModel)]="sDateString">
+			</div>
+    </div>
+
+    <div class="form-row">
+			<label class="control-label col-md-4">End Date</label>
+			<div class="col-md-4">
+			<input class="form-control" type="date" name="enddate" [(ngModel)]="eDateString">
+			</div>
+		</div>
+
+
+
+	<div class="pull-right" align="center">
+		<button class="btn btn-primary" (click)="updateTask(task.taskId, task)">Save</button>
+		<button class="btn btn-danger" (click)="cancel()">Cancel</button>
+	</div>
+	</form>
+	</div>
+	</div>

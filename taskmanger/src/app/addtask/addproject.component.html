@@ -1,0 +1,107 @@
+<form name="CustomizationForm" id="CustomizationForm">
+	<section class="panel panel-primary">
+		<header class="panel-heading">
+			<h3 align="center">Add Task</h3>
+		</header>
+
+		<div class="row shadow-lg p-3 mb-5 bg-white rounded">
+		<div class="col-md-12" >
+		<form class="form-horizontal container">
+
+			<div class="form-row ">
+				<label class="control-label col-md-4">Task</label>
+				<div class="col-md-4">
+						<input class="form-control" type="text" name="taskName" [(ngModel)]="task.taskName">
+				</div>
+			</div>
+			<!--<div class="form-row">
+				<label class="control-label col-md-4"></label>
+				<div class="col-md-4">
+				<input type="checkbox" name="IsDateCheckBox" [(ngModel)]="project.IsDate">Set Date
+				</div>
+	    </div>-->
+			<div class="form-row">
+				<label class="control-label col-md-4">Priority</label>
+				<div class="col-md-4">
+				<input #ramSelector name="ram" type="range" min="0" max="30" [(ngModel)]="task.priority" value="0">
+				<!-- <input class="form-control" type="text" name="priority" [(ngModel)]="project.priority"> -->
+				</div>
+		  </div>
+
+			<div class="form-row">
+	       <label class="control-label col-md-4">Parent Task: </label>
+	       <div class="col-md-4">
+	         	<input class="form-control" type="text" name="parentTaskName" [(ngModel)]="task.parentTaskName">
+	       </div>
+	    </div>
+
+			<div class="form-row">
+				<label class="control-label col-md-4">Start Date: </label>
+				<div class="col-md-4">
+				<input class="form-control" type="date" name="startdate" [(ngModel)]="sDateString" (change)="updateDates()">
+				</div>
+	    </div>
+
+	    <div class="form-row">
+				<label class="control-label col-md-4">End Date: </label>
+				<div class="col-md-4">
+				<input class="form-control" type="date" name="enddate" [(ngModel)]="eDateString" (change)="updateDates()">
+				</div>
+			</div>
+
+
+		<div class="pull-right" align="center">
+			<br>
+			<button class="btn btn-secondary" (click)="addTask(task)">Add Task</button> &nbsp;&nbsp;&nbsp;
+			<button class="btn btn-secondary" (click)="reset()">Reset</button>
+		</div>
+
+		<br/><br/>
+
+		<div class="alert alert-warning alert-dismissible show">
+			{{errMessage}}
+		</div>
+
+		<!--<hr class="dotted">
+		<div class="row">
+				<label class="control-label col-md-1 text-right" >Project</label>
+				<div class="col-md-2">
+					<input class="form-control" type="text" name="prjName" [(ngModel)]="searchText">
+				</div>
+				<div class="col-md-1">
+					<button type="button" class="btn btn-primary" (click)="search()">Search</button>
+				</div>
+				<label class="control-label col-md-1 text-right" >Sort By</label>
+	    		<div class="col-md-7">
+	 			  <button type="button" class="btn btn-primary" (click)="sort('startDate')">Start Date </button>
+	 			  <button type="button" class="btn btn-primary" (click)="sort('endDate')">End Date </button>
+	 			  <button type="button" class="btn btn-primary" (click)="sort('priority')">Priority </button>
+	 			  <button type="button" class="btn btn-primary" (click)="sort()">Completed</button>
+	    		</div>
+	  </div>
+	  <br>
+	  <br>
+	    	<div class="rowBg" *ngFor="let d of prjList | orderBy: key : reverse">
+	    		<label class="control-label col-md-3 text-left">Project Name :</label>
+	    		<label class="control-label col-md-3 text-left">{{d.projectName}}</label>
+	    		<label class="control-label col-md-2 text-left">Priority :</label>
+	    		<label class="control-label col-md-2 text-left">{{d.priority}}</label>
+	    		<button class="btn btn-primary" (click)="editProject(d.projectId)">Edit</button>
+	    		<label class="control-label col-md-3 text-left">No of Tasks :</label>
+	    		<label class="control-label col-md-2 text-left">{{d.totalTask}}</label>
+	    		<label class="control-label col-md-3 text-left">Completed :</label>
+	    		<label class="control-label col-md-2 text-left">{{d.totalCompleted}}</label>
+	    		<label class="control-label col-md-2 text-left"></label>
+	    		<label class="control-label col-md-3 text-left">Start Date :</label>
+	    		<label class="control-label col-md-2 text-left">{{d.startDate| date:'dd-MMM-yyyy'}}</label>
+	    		<label class="control-label col-md-3 text-left">Start Date :</label>
+	    		<label class="control-label col-md-2 text-left">{{d.endDate| date:'dd-MMM-yyyy'}}</label>
+				<button class="btn btn-danger" (click)="deleteProject(d.projectId)">Delete</button>
+				<hr class="dotted">
+	    	</div>
+				-->
+		</form>
+		</div>
+		</div>
+</section>
+</form>
